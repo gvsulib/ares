@@ -1,0 +1,28 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+
+		<div class="line">
+	<div class="span2of3 left unit">
+		<div class="instructor" style="margin-bottom: 1em;">
+			<#INCLUDE filename="include_defaultcourseinfo.html"/>
+		</div>
+		
+	</div>
+	
+	<div class="span3 left unit lastUnit">
+	<style>.line .span3 a img {width: auto;}</style>
+		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='lib-button-small-grey right subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='lib-button-small-grey right unsubscribe'>Unsubscribe</span>"/>
+	</div>
+</div>
+			
+<div class="lib-table">
+ <#TABLE class="instructor-table" name="Item" type="CourseItems" headerText="Reserve Items" LinkType="ItemView" AllowRowClick="Yes" IconDirect="True" LinkColumn="BothTitles" AllowJavascriptHover="No" column="BothTitles:Title" column="Author:Author" column="inactiveDate:Inactive" column="CurrentStatus:Status" NoDataAction="ShowMessage" NoDataMessage="There are no items in this class. <a href='<#ACTION action='10' form='2' value='IRFMenu'>&CourseID=<#COURSE field='CourseID'>'>Add reserve items now</a>." allowsort="true">
+</div>
+
+    <div style="margin-top:1em;"><p><a class="lib-button-grey" href='<#ACTION action='10' form='2' value='IRFMenu'>&CourseID=<#COURSE field='CourseID'>'>Add Reserve Items</a><br />Or, if you prefer, our <a href="mailto:ereserve@gvsu.edu">Course Reserve team can help you</a>.</p></div>
+
+<#INCLUDE filename="include_footer.html">

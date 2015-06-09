@@ -1,0 +1,96 @@
+<#INCLUDE filename="include_header.html">
+<#INCLUDE filename="include_menu.html">
+
+<form action="ares.dll" class="lib-form" method="post" name="ChangeUserInformation">
+
+<input type="hidden" name="Action" value="11"/>
+<input type="hidden" name="Form" value="<#PARAM name="Form"/>"/>							
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+					
+<h4>Manage Your Account</h4>
+
+<div class="line">
+
+	<!-- First Name input -->
+	<div class="span2 unit left">	
+	<label for="FirstName">First Name</label>
+	<p style="font-size:1.2em;" id="FirstName"><#USER field="FirstName"/></p>
+	</div> 
+
+	<!-- Last Name input -->
+	<div class="span2 unit left lastUnit">		
+	<label for="LastName">Last Name</label>
+	<p style="font-size:1.2em;" id="LastName"><#USER field="LastName"/></p>
+	</div>
+</div>
+
+
+<!-- Status input -->
+<!--div class="line">
+	<div class="span2 unit left">
+		<label for="StatusGroup"><span class="req">*</span> <span class="<#ERROR name="ERRORStatus">">Status</span></label>
+		<#OPTION name="Custom" GroupName="StatusGroup" selectedValue="<#USER Field=Status>" tabindex="11" Size="1">
+	</div>
+	<div class="span2 unit left lastUnit">
+		<label for="Department"><#ERROR name="ERRORDepartment">Department</label>						
+		<#OPTION name="Custom" GroupName="Department" selectedValue="<#USER field=Department>" tabindex="4" Size="1">
+	</div>
+</div-->
+
+<div class="line">
+	<!-- Email input -->
+	<div class="span2 left unit">				
+	<label for="EMailAddress"><span class="req">*</span> <span class="<#ERROR name="ERROREMailAddress">">Email Address</span></label>
+	<input id="EMailAddress" name="EMailAddress" tabindex="5" type="text" value="<#USER Field="EmailAddress"/>">						
+	</div>
+					
+	<!-- Phone input -->
+	<div class="span2 left unit lastUnit">
+	<label for="Phone1"><span class="<#ERROR name="ERRORPhone1">">Phone</span></label>
+	<input id="Phone1" name="Phone1" tabindex="6" type="text" value="<#USER field="Phone1"/>">						
+	</div>
+</div>
+				
+<!-- Pickup Location Selector -->
+<div id="lib-ares-address-toggle"></div>
+
+<div class="ares-mailing-address">
+
+<div class="line">
+	<div class="span1 unit">
+		<label for="Address"><span class="req">*</span> <span class="<#ERROR name="ERRORAddress">">Address (No P.O. Boxes)</span></label>
+		<input id="Address1" name="Address1" type="text" value="<#USER field="Address1"/>" /><br />						
+	</div>
+</div>
+<div class="line">
+	<div class="span1 unit">
+		<input id="Address2" name="Address2" placeholder="Address Line 2" type="text" value="<#USER field="Address2"/>" /><br />
+	</div>
+</div>
+
+<div class="line">
+	<div class="span2 unit left">
+		<label for="City">City</label>
+		<input id="City" name="City" type="text" value="<#USER field="City"/>" />
+	</div>
+	
+	<div class="span4 unit left">	
+		<label for="State">State</label>
+		<#OPTION name="Custom" GroupName="State" SelectedValue="<#USER Field=State>" tabindex="9" Size="1">
+	</div>
+	
+	<div class="span4 unit left lastUnit">
+		<label for="Zip">Zip</label>
+		<input id="Zip" name="Zip" type="text" value="<#USER field="Zip"/>" /><br />
+	</div>
+</div>
+
+</div>	
+					
+<div class="f-submit-wrap">
+<input class="lib-button" name="SubmitButton" style="margin-top: 1em; padding: .5em 1em;" tabindex="8" type="submit" value="Update" />
+</div>
+
+</form>		 
+
+<#INCLUDE filename="include_footer.html">

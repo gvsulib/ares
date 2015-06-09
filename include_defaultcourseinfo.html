@@ -1,0 +1,11 @@
+<h4 style="margin-bottom: .2em;"><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="CourseID">"><#COURSE field="CourseNumber"/>&nbsp;<#COURSE field="Name"/><#COURSE field="ClassCode" headerText="&nbsp;(" footerText=")"/></a></h4>
+<#TABLE class="xlist-table" name="CourseCrossList" HideColumnHeaders="True" column="CourseNumber" headerText="This course is also cross-listed as:" NoDataAction="ShowNothing"/>
+<ul>
+<li><#TABLE class="xlist-table" name="ClassCrossList" HideColumnHeaders="True" column="CourseNumber" headerText="This course is also cross-listed as the following:" NoDataAction="ShowNothing"/></li>
+<li><#COURSE field="Semester"/></li>
+<li><a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></li>	
+<li><#COURSE field="Instructor"/></li>
+<li><#COURSE field="Description"/></li>
+</ul>
+
+

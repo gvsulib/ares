@@ -1,0 +1,45 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+		<div class="line">
+	<div class="span2of3 left unit">
+		<div class="instructor" style="margin-bottom: 1em;">
+			<#INCLUDE filename="include_defaultcourseinfo.html"/>
+		</div>
+		
+	</div>
+	
+	<div class="span3 left unit lastUnit">
+	<style>.line .span3 a img {width: auto;}</style>
+		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='lib-button-small-grey right subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='lib-button-small-grey right unsubscribe'>Unsubscribe</span>"/>
+	</div>
+</div>
+
+<h4>Proxy Users</h4>
+
+<form method="post" action="ares.dll" class="lib-form" id="addUser">
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+<input type="hidden" name="action" value="11"/>
+<input type="hidden" name="type" value="51"/>
+<input type="hidden" name="Form" value="<#PARAM name="Form">"/>
+<input type="hidden" name="CourseID" value="<#COURSE field="CourseID">"/>
+
+<h4 style="margin-top:1em;">Add a proxy for this course</h4>	
+
+<label for="ProxyUser">Proxy's <abbr title="Grand Valley State University">GVSU</abbr> username:</label>
+<input name="ProxyUser" type="text"/>
+<input class="lib-button" id="AddProxy" type="submit" name="AddProxyUser" style="margin-top:1em;" Value="Add Proxy User"/></p>	
+
+</form>	
+
+<p>These people have proxy access to your reserves for this course.</p>
+
+<div class="lib-table">
+<#TABLE Name="Proxy" headerText="Proxy Users" class="instructor-table" DeleteText="Remove"  Type="Course" HideColumnHeaders="True" column="DeleteUsernameFirstnameLastname:Name" NoDataMessage="You have no proxy users assigned to your classes. <a href='#addUser'>Add a proxy user now</a>." NoDataAction="ShowMessage">			
+</div>		
+
+<#INCLUDE filename="include_footer.html">

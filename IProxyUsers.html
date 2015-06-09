@@ -1,0 +1,31 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<h4>Proxy Users</h4>
+<p>If you wish to give someone else the ability to create and manage classes on your behalf, give them full proxy access to all your classes.</p>
+
+<p>Want to give administrative access for a single class? Select the class, then add new users from the Class menu.</p>
+
+
+<form class="lib-form" id="addUser" method="post" action="ares.dll" style="margin-top:1.5em;">
+
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+<input type="hidden" name="action" value="11"/>
+<input type="hidden" name="Form" value="<#PARAM name="Form">"/>
+
+<label for="ProxyUser">Proxy&#8217;s <abbr title="Grand Valley State University">GVSU</abbr> username:</label>
+<input name="ProxyUser" type="text"/>
+<input class="lib-button" id="AddProxyUser" type="submit" name="AddProxyUser" style="margin-top:1em;" Value="Add Proxy User"/></p>	
+					
+</form>		
+
+<div class="lib-table">
+	<#TABLE Name="Proxy" headerText="Proxy Users" class="instructor-table" DeleteText="Remove"  Type="Full" HideColumnHeaders="True" column="DeleteUsernameFirstnameLastname:Name" NoDataMessage="You have no proxy users. <a href='#addUser'>Add proxy users now</a>." NoDataAction="ShowMessage" orderBy="lastname">
+</div>
+
+
+<#INCLUDE filename="include_footer.html">

@@ -1,0 +1,24 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<h4>Upload File</h4>
+
+<p style="font-size:1.3em;margin-bottom:1.5em;"><#ITEM field="Author" footerText=". " /><#ITEM field="PubDate" headerText="(" footerText="). " /><#ITEM field="JournalYear" headerText="(" footerText="). " /><#ITEM field="ArticleTitle" headerText="&#8220;" footerText=".&#8221; " /><#ITEM field="Title" headerText="<i>" footerText="</i>. " /><#ITEM field="PubPlace" footerText=": " /><#ITEM field="Publisher" footerText=". " /><#ITEM field="Pages" headerText="pp." footerText=". " />.</p>
+
+
+<form action="ares.dll/Upload" class="lib-form" method="POST" enctype='multipart/form-data' >
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">" />
+<input type="hidden" name="Username" value="<#USER field="Username">" /> 
+<input type="hidden" name="ItemIDs" value="<#PARAM name="ItemIDs">" />
+
+<label for="ItemFileLocation">Choose a file to upload</label>
+<input type="file" name="ItemFileLocation" id="ItemFileLocation" /><br />
+<input class="lib-button" style="margin-top: 1em;" type="submit" name="SubmitButton" value="Upload File" />
+
+</form>
+
+<#INCLUDE filename="include_footer.html">

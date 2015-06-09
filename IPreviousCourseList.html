@@ -1,0 +1,12 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<div class="lib-table">
+<#TABLE name="Course" class="instructor-table" AllowRowClick="Yes" headerText="Previous Classes" LinkColumn="CourseNumber" AllowJavascriptHover="True" Session="Previous" Role="Instructor" column="Semester:Semester" column="CourseNumber:Course" column="CourseCode:Section Number" column="Name:Name" NoDataAction="ShowMessage" NoDataMessage="No classes found." orderby="C.StopDate DESC,C.CourseNumber ASC">		
+</div>
+
+<#INCLUDE filename="include_footer.html">

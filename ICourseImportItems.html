@@ -1,0 +1,83 @@
+﻿<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+		<!--#INCLUDE filename="include_instructorclassmenu.html" restriction="Usertype:ClassInstructor">
+		<#INCLUDE filename="include_instructorclassmenu.html" restriction="Usertype:ClassFullProxy">
+		<#INCLUDE filename="include_classproxyclassmenu.html" restriction="Usertype:ClassProxy"-->
+		<span style="background-color:#E6F4FF ;font-size: 110%"><#STATUS class="fade"/></span>
+
+		<table style="border: 1px solid rgb(0, 0, 102); border-collapse: collapse;" width="100%">
+		<tr style="background-color: rgb(0, 0, 102); color: #FFFFFF; font-weight: bold;">
+			<td>Import From</td>
+
+			<td>Import To</td>
+		</tr>
+		<tr>
+		<td width="50%" valign="top">
+	
+
+			<div class="row"><span style="font-weight: bold; font-size: 1.2em;"><#FROMCOURSE field="CourseNumber"/><#COURSE field="ClassCode" headerText="&nbsp;(" footerText=")"/></span>&nbsp;<span style="font-size: 1.2em;"><#FROMCOURSE field="Name"/></span></div>
+			<div class="row"><#FROMCOURSE field="Semester"/></div>
+
+			<div class="row"><a target="_blank" href="<#FROMCOURSE field="URL"/>"><#FROMCOURSE field="URL"/></a></div>	
+			<div class="row"><#FROMCOURSE field="Instructor"/></div>
+			<div class="row"><#FROMCOURSE field="Description"/></div>			
+
+		</td>
+
+		<td width="50%" valign="top">
+			<div class="row"><span style="font-weight: bold; font-size: 1.2em;"><#COURSE field="CourseNumber"/><#COURSE field="ClassCode" headerText="&nbsp;(" footerText=")"/></span>&nbsp;<span style="font-size: 1.2em;"><#COURSE field="Name"/></span></div>
+
+			<div class="row"><#COURSE field="Semester"/></div>
+			<div class="row"><a target="_blank" href="<#COURSE field="URL"/>"><#COURSE field="URL"/></a></div>	
+			<div class="row"><#COURSE field="Instructor"/></div>
+			<div class="row"><#COURSE field="Description"/></div>			
+		</td>
+		</table>
+		
+	    <h4>Choose reserve items you wish to import:</h4>	
+
+            <form action="ares.dll" id="ImportItems" method="post" name="ImportItems" class="f-wrap-request">
+
+                <input type="hidden" name="Action" value="11">
+                <input type="hidden" name="Form" value="70">							
+		<input type="hidden" name="FromClassID" value="<#PARAM name="FromClass"/>"/>
+		<input type="hidden" name="ClassID" value="<#COURSE field="ClassID"/>"/>
+                <input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+		<input type="hidden" name="IncludeXListInfo" value="On">
+		<input type="hidden" name="CloneItemTags" value="On">
+                
+                <div>
+                    <a href="#" onclick="ToggleCheckboxes(false, 'ImportItems'); return false;">Uncheck All</a> | <a href="#" onclick="ToggleCheckboxes(true, 'ImportItems'); return false;">Check All</a><br />
+                </div>                
+                
+            	<#TABLE id="ImportItems" class="instructor-table-nohover" type="Import" name="CloneItems" headerText="Reserve Materials to Import" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>                
+
+		<input type="submit" id="SubmitButton" name="SubmitButton" onClick="toggleloading();" value="Import Items" tabIndex="2000"/>
+		<div id="ImportingItemsWait" align="center" style="padding: 20px; background-color: #FFFFFF;border:1px solid rgb(0, 0, 102);position:absolute;z-index:5;top:30%;left:32%;visibility:hidden">
+
+			<h3>Please wait as items are imported into <#COURSE field="CourseNumber"/></h3>
+			<img src="images/ajax-loader.gif">
+		</div>
+	     </form>
+
+
+            <div id="footer">
+              <p><#COPYRIGHT></p>
+			<script language="javascript">
+
+
+			function toggleloading()
+			{
+
+				ImportPanel = document.getElementById("ImportingItemsWait");
+
+				ImportPanel.style.pixelTop = (document.body.scrollTop + 50);
+
+				ImportPanel.style.visibility="visible";
+
+			}
+			</script>
+<#INCLUDE filename="include_footer.html">

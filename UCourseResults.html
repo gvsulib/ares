@@ -1,0 +1,39 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<style>
+
+		@media screen and (max-width:550px){ 
+
+			/* Styles to fix problematic table displays on small screens */
+
+    		.lib-table table#SearchResults {display:block;}
+    		.lib-table table#SearchResults td{display:inline;float:left;border:0;width:auto;}
+    		.lib-table table#SearchResults thead th { display: none;}
+    		.lib-table table#SearchResults tr td { background: #fff !important;padding: 0 0 0 .25em;}
+    		.lib-table table#SearchResults tbody td:first-child { margin-bottom: 1em;}
+    		.lib-table table#SearchResults tbody td:after { content: ',';}
+    		.lib-table table#SearchResults tbody td:first-child:after,
+    		.lib-table table#SearchResults tbody td:last-child:after { content: '';}
+            .lib-table table#SearchResults tbody tr{position:relative;display:block;float:right;clear:both;padding:1em 0;width:65%;margin-left:33%;}
+            .lib-table table#SearchResults tbody td:first-child { position: absolute; left: -50%; top: 1em;}
+            img.class-added {left: 3.5em;bottom: -1em;position: relative;display: block;}
+            .lib-table table#SearchResults tfoot tr { border: 0;}
+            .lib-table table tr:last-child { border: 0;}
+            .lib-table table#SearchResults tbody td:nth-of-type(2),
+            .lib-table table#SearchResults tbody td:nth-of-type(3) { font-weight: bold;}
+            .lib-table table#SearchResults tbody td:nth-of-type(3):before { content: 'Section ';}
+            .lib-table table#SearchResults tbody td:nth-of-type(4) { font-style: italic;}
+       }
+
+</style>
+
+<div class="lib-table course-search-results">
+<#TABLE name="Course" type="AddCourse"  addCourseText="<span class='lib-button-small-grey' style='margin-bottom:0;''>Add Class</span>" previouslyAddedText="<img src='/ares/img/checkmark.png' class='class-added' alt='Added' />" id="SearchResults" class="student-table-nohover" AllowRowClick="No" headerText="Classes" AllowJavascriptHover="No" Session="Current" Role="Student" column="CourseNumber:Course" column="CourseCode:Sec" column="Name:Name" column="Instructor:Instructor" NoDataAction="ShowMessage" NoDataMessage="No classes were found with that criteria.<br/>To add classes to your account, <a href='<#Action action=10 form=63>'>Search Classes</a>" footerText="<a href='<#Action action=10 form=63>' class='lib-button-small' style='margin:1em 0;'>Search Again?</a>">
+</div>
+			
+<#INCLUDE filename="include_footer.html">

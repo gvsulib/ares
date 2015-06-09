@@ -1,0 +1,30 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+	
+<form action="ares.dll" method="post" name="UserHome">
+<input name="action" type="hidden" value="20" />
+<input name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />		
+<input type="hidden" name="LibraryID" value="<#USER field="LibraryID">">
+
+<div id="student_classes">
+<div class="lib-table">
+<#TABLE name="Course" id="SearchResults" class="student-table" AllowRowClick="Yes" headerText="My Classes" LinkColumn="CourseNumber" AllowJavascriptHover="Yes" Session="Current" Role="Student" column="CourseNumber:Course" column="CourseCode:Section Number" column="Name:Name" column="ItemCount:Reserve Items" NoDataAction="ShowMessage" NoDataMessage="No classes found.">
+</div>
+</div>
+
+<div id="no_classes" style="display: none; font-size: 1.2em;">
+ <p>Course Reserves helps you find all your assigned readings in one convenient place.</p>
+    
+    <p><a href="<#ACTION action='10' form='63'>" class="lib-button">Add Your Classes</a></p>
+    
+    <p>Expecting to find your classes? Each semester you need to add your classes to our Course Reserve system manually. If you have questions, get in touch so we can help: <a href="mailto:ereserve@gvsu.edu">ereserve@gvsu.edu</a></p>
+    
+</div>
+    
+</form>
+			
+<#INCLUDE filename="include_footer.html">

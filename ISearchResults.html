@@ -1,0 +1,12 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+
+<div class="lib-table">
+<#TABLE class="instructor-table" name="Item" headerText="Search Results" LinkType="ItemEdit" AllowRowClick="Yes" LinkColumn="BothTitles" AllowJavascriptHover="Yes" column="BothTitles:Title" column="Author:Author" column="CourseNumber:Course" column="CurrentStatus:Status" NoDataAction="ShowMessage" NoDataMessage="Your search produced no results.">
+</div>
+
+<#INCLUDE filename="include_footer.html">

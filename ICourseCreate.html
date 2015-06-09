@@ -1,0 +1,106 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<form action="ares.dll" method="post" name="CreateCourse" class="lib-form">
+<input type="hidden" name="Action" value="11" />
+<input type="hidden" name="Type" value="11" />							
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">" />
+<input type="hidden" name="UseCoursePassword" value="No" />
+<input name="CourseEnrollment" type="hidden" value="15" />
+
+<h4>Add a Class </h4>
+<div class="line">
+<div class="span2 unit left">
+<label for="CourseInstructor"><#ERROR name="ERRORCourseInstructor"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseInstructor">">Instructor</span> (Last, First)</label>
+<input id="CourseInstructor" name="CourseInstructor" tabindex="1" type="text" value="<#PARAM name="CourseInstructor">" />
+</div>
+
+<div class="span2 unit left lastUnit" id="new-department">	
+<label for="Department"><#ERROR name="ERRORDepartment"><span class="req">*</span> <span class="<#VALIDATION name="ERRORDepartment">">Department</span></label>
+<#OPTION name='Custom' Cssclass='f-dept' GroupName='Department' AddTopOption='Choose a Department' SelectedValue="<#User field=department>" tabindex='2' Size='1' ExcludeJoinedValues='True'>
+</div>
+</div>
+
+<div class="line">
+<div class="span2 unit left">
+<label for="CourseName"><#ERROR name="ERRORCourseName"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseName">">Class Name</span></label>
+<input id="CourseName" name="CourseName" type="text" tabindex="3" value="<#PARAM name="CourseName">" />
+</div>
+
+<div class="span4 unit left">
+<label for="CourseNumber"><#ERROR name="ERRORCourseNumber"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseNumber">">Course Number</span></label>
+<input id="CourseNumber" name="CourseNumber" placeholder="e.g. MAT 101" tabindex="4" type="text" value="<#PARAM name="CourseNumber">" />
+</div>
+              
+<div class="span4 unit left lastUnit">
+<label for="CourseCode"><#ERROR name="ERRORCourseCode"><span class="<#VALIDATION name="ERRORCourseCode">">Section Number</span></label>
+<input id="CourseCode" name="CourseCode" tabindex="5" type="text" value="<#PARAM name="CourseCode">">
+</div>
+</div>
+
+<#OPTION name="InstructorUsernames" useJavascriptNames="True" header="<label for='ClassInstructor'><#ERROR name='ERRORInstructorUsername'><b>Instructor&rsquo;s Username</b>" tabindex="6" class="f-name" footer="<br /></label>"/>
+
+				
+<div class="line">                	
+<div class="span2 unit left" id="new-semester">        
+<label for="CourseSemester"><#ERROR name="ERRORCourseSemester"><span class="req">*</span> <span class="<#VALIDATION name="ERRORSemester">">Class Semester</span></label>
+<#OPTION name="Semester" SelectedValue="<#Course name=semester>" tabIndex="7">
+</div>
+
+<div class="span2 unit left" id="new-pickup">
+<label for='Pickup Location'><span class='<#VALIDATION name=ERRORPickupLocation>'>Pickup Location for Physical Items</span></label>
+<#OPTION name="PickupLocation" tabIndex="8" SelectedValue="Zumberge Library">
+</div>
+
+</div>
+
+<div class="line">
+<div class="span1 unit">					
+<label for="CourseDescription"><#ERROR name="ERRORCourseDescription"><span class="<#VALIDATION name="ERRORCourseDescription">">Class Description</span></label>
+<textarea name="CourseDescription" id="CourseDescription" tabindex="9"><#PARAM name="CourseDescription"/></textarea>
+</div>
+</div>
+
+<div class="line">
+<div class="span1 unit">
+<label for="CourseURL"><#ERROR name="ERRORCourseURL"><span class="<#VALIDATION name="ERRORCourseURL">">Class <abbr title="Uniform Resource Locator">URL</abbr></span></label>
+<input id="CourseURL" name="CourseURL" placeholder="http://" tabindex="10" type="text" value="<#PARAM name="CourseURL">" />
+</div>
+</div>
+
+<hr />
+
+<h4>Access</h4>
+
+<div class="line">
+<div class="span1 unit">
+<input type="checkbox" id="UseCoursePassword" name="UseCoursePassword" value="Yes" tabindex="11" /> <label style="display:inline-block;">Password-protect items for this class</label>
+</div>
+</div>
+
+<div class="line">
+<div class="span2 unit left" id="hidden-password">
+	<label for="CoursePassword">Password:</label>
+	<input type="password" name="CoursePassword" id="ud-first-password" tabindex="13" /><br />
+	<label for="VerifyPassword">Verify:</label>
+	<input type="password" name="VerifyPassword" id="lib-second-password" tabindex="14" /><br />
+</div>
+<div class="span2 unit left lastUnit">
+&nbsp;
+</div>
+</div>
+
+<input class="lib-button" type="submit" tabindex="15" name="SubmitButton" value="Create Class" />
+
+</form>
+		
+<script>
+	var username = document.getElementById('InstructorUsername').value;
+	GetName(username);
+</script>
+
+<#INCLUDE filename="include_footer.html">

@@ -1,0 +1,67 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<h4>Cross Listings</h4>
+
+<p>If this course is cross listed, add the additional course numbers so that students can find this course using any of its listsings.</p>	
+
+<div class="line">
+	<div class="span2of3 left unit">
+		<div class="instructor" style="margin-bottom: 1em;">
+			<#INCLUDE filename="include_defaultcourseinfo.html"/>
+		</div>
+		
+	</div>
+	
+	<div class="span3 left unit lastUnit">
+	<style>.line .span3 a img {width: auto;}</style>
+		<div class="right"><a href="#addCrossListings" class="lib-button-small-grey">Add Cross Listing</a></div>
+		
+	</div>
+</div>
+
+<div class="lib-table">
+	<#TABLE class="xlist-table" name="CourseCrossList" column="RemoveCrossList:Remove" column="Department:Department" column="CourseNumber:Course" column="Name:Name" column="CourseCode:Section" headerText="This class is cross-listed as:" NoDataAction="ShowMessage" NoDataMessage="This class is not cross-listed. <a href='#addCrossListings'>Add Cross-listings now</a>." />
+</div>
+
+<form method="post" action="ares.dll" class="lib-form">
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+<input type="hidden" name="action" value="11"/>
+<input type="hidden" name="type" value="122"/>
+<input type="hidden" name="Form" value="<#PARAM name="Form">"/>
+<input type="hidden" name="ValidationForm" value="CrossList"/>
+<input type="hidden" name="CourseID" value="<#COURSE field="CourseID">"/>
+
+<h4 id="addCrossListings" style="margin-top:1em;">Add a cross-listing</h4>
+
+<div class="line">
+<div class="span2 unit left">
+<label for="Department"><#ERROR name="ERRORDepartment"><span class="req">*</span><span class="<#VALIDATION Name="ERRORDepartment">">Department</span></label>
+		<#OPTION name="Custom" GroupName="Department" SelectedValue="<#PARAM name=Department>" AddTopOption='Choose a Department' tabindex="1">
+</div>
+
+<div class="span4 unit left">
+	<label for="CourseNumber"><#ERROR name="ERRORCourseNumber"><span class="req">*</span>Course Number</label>
+    <input id="CourseNumber" name="CourseNumber" type="text" tabindex="2" placeholder="e.g. MAT-101" value="<#PARAM name="CourseNumber">">
+</div>
+
+<div class="span4 unit left lastUnit">
+	<label for="CourseCode"><#ERROR name="ERRORClassCode">Section</label>
+     <input id="CourseCode" name="CourseCode" type="text" tabindex="3" value="<#PARAM name="CourseCode">"><br />
+</div>
+</div>
+
+<div class="line">
+<div class="span1 unit">
+	<label for="CourseName"><#ERROR name="ERRORCourseName">Class Name</label>
+    <input id="CourseName" name="CourseName" type="text" tabindex="4" value="<#PARAM name="CourseName">">
+</div>
+</div>
+                	
+<input class="lib-button" type="submit" name="SubmitButton" value="Add Cross-listed Course" tabIndex="5" />
+
+</form>			
+<#INCLUDE filename="include_footer.html">

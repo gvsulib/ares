@@ -1,0 +1,28 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">
+
+
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+
+<a href="<#ACTION action="10" form="60" valueType="Lookup" Value="CourseID">" style="text-decoration: underline;display:block;margin-bottom:1em;">&laquo; Back to <#COURSE field="CourseNumber"> - <#COURSE field="Name"></a>
+
+
+<div>
+		<h4>You are looking for:</h4>
+
+		<p style="font-size:1.3em;"><#ITEM field="Author" footerText=". " /><#ITEM field="PubDate" headerText="(" footerText="). " /><#ITEM field="JournalYear" headerText="(" footerText="). " /><#ITEM field="ArticleTitle" headerText="&#8220;" footerText=".&#8221; " /><#ITEM field="Title" headerText="<i>" footerText="</i>. " /><#ITEM field="PubPlace" footerText=": " /><#ITEM field="Publisher" footerText=". " /><#ITEM field="Pages" headerText="pp." footerText=". " />.</p>
+			<p style="font-size:1.3em;"><#ITEM field="ShelfLocation" headerText="It is available at: <b>" footerText="</b>. " /><#ITEM field="LoanPeriodDescription" headerText="You can borrow it for <b>" footerText="</b>." /></p>
+
+	</div>
+			
+<div class="gvsu-clear"></div>
+
+<style>
+/* in your face, Ares. */
+#itemLink { width: 18% !important; }
+</style>
+<#ITEM field="BuildURL" newWindow="True" freeText="False" linkText="<span class='lib-button-grey right' id='itemLink'><#ITEM Field='Icon'> View Item</span>" />
+
+<#INCLUDE filename="include_footer.html">

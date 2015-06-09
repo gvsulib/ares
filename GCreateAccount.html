@@ -1,0 +1,89 @@
+<#INCLUDE filename="include_header.html">   
+<#INCLUDE filename="include_menu.html"> 
+
+<form action="ares.dll" method="post" name="ChangeUserInformation" class="lib-form">
+<input type="hidden" name="Action" value="11"/>
+<input type="hidden" name="Form" value="81"/>                           
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+
+<h4>Set Up Your Account</h4>               
+  
+<div class="line">
+
+    <!-- First Name input -->
+    <div class="span2 unit left">
+        <label for="FirstName"><span class="req">*</span> <#ERROR Name="ERRORFirstName">First Name</label>
+         <input id="FirstName" name="FirstName" type="text" stabindex="1" value="<#PARAM field="FirstName"/>">
+    </div>
+    
+    <!-- Last Name input -->
+    <div class="span2 unit left lastUnit">              
+        <label for="Last Name"><span class="req">*</span> <#ERROR Name="ERRORLastName">Last Name</label>
+         <input id="LastName" name="LastName" type="text" tabindex="2" value="<#PARAM field="LastName"/>">
+    </div>
+</div>
+
+<!-- Status input -->
+<div class="line">
+    <div class="span2 unit left">
+        <label for="StatusGroup"><span class="req">*</span> <span class="<#ERROR name="ERRORStatus">">Status</span></label>
+        <#OPTION name="Custom" GroupName="StatusGroup" AddTopOption="Choose a Status" Value="<#USER Field="StatusGroup">" tabindex="3">
+    </div>
+    <div class="span2 unit left lastUnit">
+        <label for="Department"><#ERROR name="ERRORDepartment">Department</label>                       
+        <#OPTION name="Custom" GroupName="Department" AddTopOption="Choose a Department" SelectedValue="<#PARAM name=Department>" tabindex="4" Size="1">
+    </div>
+</div>
+
+<div class="line">
+    <!-- Email input -->
+    <div class="span2 left unit">               
+    <label for="EMailAddress"><span class="req">*</span> <span class="<#ERROR name="ERROREMailAddress">">Email Address</span></label>
+    <input id="EMailAddress" name="EMailAddress" tabindex="5" type="text" value="<#PARAM Field="EmailAddress"/>">                        
+    </div>
+                    
+    <!-- Phone input -->
+    <div class="span2 left unit lastUnit">
+    <label for="Phone"><span class="<#ERROR name="ERRORPhone">">Phone</span></label>
+    <input id="Phone" name="Phone" tabindex="6" type="text" value="<#PARAM field="Phone1"/>">                        
+    </div>
+</div>
+                    
+<div class="ares-mailing-address">
+
+<div class="line">
+    <div class="span1 unit">
+        <label for="Address"><span class="req">*</span> <span class="<#ERROR name="ERRORAddress">">Address (No P.O. Boxes)</span></label>
+        <input id="Address1" name="Address1" type="text" value="<#PARAM field="Address1"/>" /><br />                     
+    </div>
+</div>
+<div class="line">
+    <div class="span1 unit">
+        <input id="Address2" name="Address2" placeholder="Address Line 2" type="text" value="<#PARAM field="Address2"/>" /><br />
+    </div>
+</div>
+
+<div class="line">
+    <div class="span2 unit left">
+        <label for="City">City</label>
+        <input id="City" name="City" type="text" value="<#PARAM field="City"/>" />
+    </div>
+    
+    <div class="span4 unit left">   
+        <label for="State">State</label>
+        <#OPTION name="Custom" GroupName="State" SelectedValue="MI" Size="1">
+    </div>
+    
+    <div class="span4 unit left lastUnit">
+        <label for="Zip">Zip</label>
+        <input id="Zip" name="Zip" type="text" value="<#PARAM field="Zip"/>" /><br />
+    </div>
+</div>
+
+</div>  
+                    
+<input type="submit" name="SubmitButton" class="lib-button" tabindex="7" value="Change my info" />               
+                        
+</form>         
+
+<#INCLUDE filename="include_footer.html">

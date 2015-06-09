@@ -1,0 +1,18 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+		
+<h4>Detailed Reserve Usage</h4>
+
+<div class="row"><a href="<#ACTION action="10" form="115" valueType="Lookup" Value="CourseID">" style="text-decoration: underline;display:block;margin-bottom:1em;">Back to Class Usage</a></div>
+
+<p style="font-size:1.3em;"><#ITEM field="Icon" headerText="<span style="float: left; margin: 0 .7em 1em 0;">" footerText="</span>" /><#ITEM field="Author" footerText=". " /><#ITEM field="PubDate" headerText="(" footerText="). " /><#ITEM field="JournalYear" headerText="(" footerText="). " /><#ITEM field="ArticleTitle" headerText="&#8220;" footerText=".&#8221; " /><#ITEM field="Title" headerText="<i>" footerText="</i>. " /><#ITEM field="PubPlace" footerText=": " /><#ITEM field="Publisher" footerText=". " /><#ITEM field="Pages" headerText="pp." footerText=". " /></p>
+		
+<div class="lib-table">
+<#TABLE Name="ItemUsage" class="instructor-table-nohover" headerText="Detailed Reserve Usage" AllowJavascriptHover="False" AllowSort="Yes" NoDataMessage="This item has not been viewed." NoDataAction="ShowMessage" AllowSort="True" orderBy="LastName,FirstName,UsageCount DESC">
+</div>					
+
+<#INCLUDE filename="include_footer.html">

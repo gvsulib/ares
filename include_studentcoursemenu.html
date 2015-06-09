@@ -1,0 +1,22 @@
+<div id="utility">
+	<ul id="nav-secondary">
+		<li class="active"><a href="<#ACTION action="99">">Logoff <#PARAM name="Username"></a></li>
+		<#SWITCHMODE header="<li class='active'>" footer="</li>">
+		<li class="active"><a href="<#ACTION action="10" form="10">">Main Menu</a></li>
+		<li class="active"><a href="#">Student Class Tools</a>
+			<ul>
+				<li class="first"><a href="<#ACTION action="10" form="60" ValueType="Lookup" Value="ClassID">">Class Home</a></li>
+				<li><#RSS name="CourseItems" type="URL" Displaytext="<span style='border:1px solid;border-color:#FC9 #630 #330 #F96;padding:0 3px;font:bold 10px verdana,sans-serif;color:#FFF;background:#F60;text-decoration:none;margin:0;'>XML</span> &nbsp;RSS Feed" ValueType="Lookup" Value="ClassID"></li>
+			</ul>
+		</li>
+		<#INCLUDE filename="include_instructormenu.html" restriction="UserType:Instructor">
+		<#INCLUDE filename="include_studentmenu.html" restriction="UserType:Student">
+		<li class="active"><a href="#">Ares Tools</a>
+			<ul>
+				<li class="first"><a href="<#ACTION action="20" form="81">">Change User Information</a></li>
+				<#INCLUDE Filename="include_changepasswordoption.html" AresAuth="True">
+				<li class="last"><a href="<#ACTION action="10" form="73">">My EMails</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>

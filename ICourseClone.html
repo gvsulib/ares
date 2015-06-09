@@ -1,0 +1,87 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+
+<form action="ares.dll" method="post" name="CreateClass" class="lib-form">
+<input type="hidden" name="Action" value="11">
+<input type="hidden" name="Form" value="114">							
+<input type="hidden" name="OldClassID" value="<#COURSE field="CourseID"/><#PARAM name="OldCourseID"/>"/>
+<input type="hidden" name="value" value="<#PARAM name="value"/>"/>
+<input type="hidden" name="SessionID" value="<#PARAM name="SessionID">">
+
+<h4>Clone Class</h4>
+
+<div class="lib-alert">Update the semester and section number, and then choose the items you would like to have on reserves again. We'll take care of everything else!</div>
+
+<div class="line">
+<div class="span2 unit left">
+<label for="CourseInstructor"><#ERROR name="ERRORCourseInstructor"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseInstructor">">Instructor</span> (Last, First)</label>
+<input id="CourseInstructor" name="CourseInstructor" tabindex="1" type="text" value="<#COURSE field="Instructor">" />
+</div>
+
+<div class="span2 unit left lastUnit">	
+<label for="Department"><#ERROR name="ERRORDepartment"><span class="req">*</span> <span class="<#VALIDATION name="ERRORDepartment">">Department</span></label>
+<#OPTION name='Custom' Cssclass='f-dept' GroupName='Department' AddTopOption='Choose a Department' SelectedValue="<#Course field=department>" tabindex='2' Size='1' ExcludeJoinedValues='True'>
+</div>
+</div>
+
+<div class="line">
+<div class="span2 unit left">
+<label for="CourseName"><#ERROR name="ERRORCourseName"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseName">">Class Name</span></label>
+<input id="CourseName" name="CourseName" type="text" tabindex="3" value="<#COURSE field="Name">" />
+</div>
+
+<div class="span4 unit left">
+<label for="CourseNumber"><#ERROR name="ERRORCourseNumber"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseNumber">">Course Number</span></label>
+<input id="CourseNumber" name="CourseNumber" placeholder="e.g. MAT-101" tabindex="4" type="text" value="<#COURSE field="CourseNumber">" />
+</div>
+              
+<div class="span4 unit left lastUnit">
+<label for="CourseCode"><#ERROR name="ERRORCourseCode"><span class="<#VALIDATION name="ERRORCourseCode">">Section Number</span></label>
+<input id="CourseCode" name="CourseCode" tabindex="5" type="text" value="<#COURSE field="CourseCode">">
+</div>
+</div>
+				
+<div class="line">                	
+<div class="span2 unit left" id="new-semester">        
+<label for="Semester"><#ERROR name="ERRORSemester"><span class="req">*</span> <span class="<#VALIDATION name="ERRORSemester">">Class Semester</span></label>
+<#OPTION name="Semester" tabindex="6" class="f-name" exclusiv="Yes" onChange="GetSemesterStartStop(document.getElementById('Semester').value);"/><br/>
+</div>
+
+<div class="span2 unit left">
+<label for='Pickup Location'><span class='<#VALIDATION name=ERRORPickupLocation>'>Pickup Location for Physical Items</span></label>
+<#OPTION name="PickupLocation" tabIndex="7" SelectedValue="<#Course field="DefaultPickupSite">" >
+</div>
+
+</div>
+
+<div class="line">
+<div class="span1 unit">					
+<label for="CourseDescription"><#ERROR name="ERRORCourseDescription"><span class="<#VALIDATION name="ERRORCourseDescription">">Class Description</span></label>
+<textarea name="CourseDescription" id="CourseDescription" tabindex="8"><#COURSE field="Description"/></textarea>
+</div>
+</div>
+
+<div class="line">
+<div class="span1 unit">
+<label for="CourseURL"><#ERROR name="ERRORCourseURL"><span class="<#VALIDATION name="ERRORCourseURL">">Class <abbr title="Uniform Resource Locator">URL</abbr></span></label>
+<input id="CourseURL" name="CourseURL" placeholder="http://" tabindex="9" type="text" value="<#COURSE field="URL">" />
+</div>
+</div>
+
+<hr />
+
+<h4>Items</h4>
+<div class="lib-table">
+<#TABLE class="instructor-table-nohover" name="CloneItems" headerText="Items to Reserve" IncludeJavascriptCalendar="Yes" calendarText="<img src='images/cal.gif' alt='Open Calendar'/>"/>
+</div>
+<input class="lib-button" type="submit" tabindex="10" name="SubmitButton" value="Clone Class" style="margin-top: 1em;"/>
+
+</form>
+<script language="javascript">
+GetSemesterStartStop(document.getElementById('Semester').value);
+</script>
+<#INCLUDE filename="include_footer.html">

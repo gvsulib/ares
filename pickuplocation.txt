@@ -1,0 +1,1 @@
+<#OPTION name="PickupLocation" selectedValue="Leavey" headerText="<label for='Pickup Location'><b><span class='<#VALIDATION name=ERRORPickupLocation>'>Default Pickup Location for Physical Items</span></b>" footerText="<br /></label>">

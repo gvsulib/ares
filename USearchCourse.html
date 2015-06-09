@@ -1,0 +1,90 @@
+<#INCLUDE filename="include_header.html">
+<#INCLUDE filename="include_menu.html">
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<h4>Add a new class:</h4>
+
+<div id="tabs">
+	<section class="lib-tabs">
+    <ul>
+      <li><a href="#tab-1">By Department</a></li>
+      <li><a href="#tab-2">By Course</a></li>
+      <li><a href="#tab-3">By Instructor</a></li>
+
+    </ul>
+</section>
+     <div id="tab-1" class="tab-content">
+      <form class="lib-form" name="CourseSearch">
+<p>&nbsp;</p>
+<input name="Action" type="hidden" value="11" />
+<input name="Form" type="hidden" value="63" />							
+<input name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+
+<#OPTION name="Custom" GroupName="Department" SelectedValue="<#USER field=Department>" Size="1">
+
+<input class="lib-button" style="margin-top:1em;display:block;" name="DepartmentSearch" type="submit" value="Search" />
+
+</form>
+
+    </div>
+
+<div id="tab-2" class="tab-content">
+      <form name="CourseSearch">
+      	<p>&nbsp;</p>
+<input name="Action" type="hidden" value="11" />
+<input name="Form" type="hidden" value="63" />							
+<input name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+
+<div class="line">
+	<div class="span4 unit left">
+		<select name="CourseField" style="width:98%">
+
+			<optgroup label="Choose one">
+			<option>Course Number</option>
+			<option>Class Name</option>
+			<option>Class Code</option>
+			</optgroup>
+
+		</select>
+	</div>
+	<div class="span4 unit left">
+
+		<select name="CourseType" style="width:98%">
+
+			<optgroup label="Choose one">
+			<option>Starts with</option>
+			<option>Contains</option>
+			</optgroup>
+
+		</select>
+	</div>
+	<div class="span4 unit left">
+		<input name="Course" type="text" style="font-size:1.2em;width:98%; padding: .2em 1%; border:1px solid #bbb;" />
+	</div>
+	<div class="span4 unit left lastUnit">
+		<input class="lib-button-small" name="CourseSearch" type="submit" value="Search" />
+	</div>
+</div>
+</form>
+</div>
+
+   
+    <div id="tab-3" class="tab-content">
+      <form class="lib-form" name="CourseSearch">
+		<p>&nbsp;</p>
+		<input name="Action" type="hidden" value="11" />
+		<input name="Form" type="hidden" value="63" />							
+		<input name="SessionID" type="hidden" value="<#PARAM name="SessionID">" />
+
+		<#OPTION name="SearchInstructors" DefaultOptionText="Choose an Instructor &nbsp;"/>			
+
+		<input name="InstructorSearch" class="lib-button" style="display: block; margin-top: 1em;" type="submit" value="Search" />
+	</form>
+    </div>
+    
+  </div>
+
+		
+<#INCLUDE filename="include_footer.html">

@@ -1,0 +1,58 @@
+<#INCLUDE filename="include_header.html">
+
+<script>
+var sessionid = '<#PARAM name="SessionID"/>';
+</script>
+<style>
+.legend { overflow:visible;padding-bottom:.5em;}
+.legend img { padding-right:.2em; position:relative; top:.2em; }
+</style>
+
+<!--[if lt IE 9]><style>.legend li { width: 13%; }</style><![endif]-->
+
+
+<#INCLUDE filename="include_menu.html">
+
+<div class="line">
+	<div class="span2of3 left unit">
+		<div class="instructor">
+			<#INCLUDE filename="include_defaultcourseinfo.html"/>
+		</div>
+	</div>
+	
+	<div class="span3 left unit lastUnit">
+	<style>.line .span3 a img {width: auto;}</style>
+		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='lib-button-small-grey right subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='lib-button-small-grey right unsubscribe'>Unsubscribe</span>"/>
+	</div>
+</div>
+
+			<div class="gvsu-clear">
+			<form name="UserHome" method="post" action="ares.dll">
+			<input type="hidden" name="action" value="20" />
+			<input type="hidden" name="CourseID" value="<#COURSE field="CourseID"/>" />
+ 			<input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
+
+			<div class="line">
+				<div class="span1 unit lib-horizontal-list legend">
+					<ul>
+						<li><img src="images/pdf.gif" alt="Portable Document Format" /> <abbr title="Portable Document Format">PDF</abbr></li>
+						<li><img src="images/hardcopyicon.gif" alt="Hard Copy" />Hard Copy</li>
+						<li><img src="images/webpageicon.gif" alt="Web Page link" /> Web Page</li>
+						<li><img src="images/video_16.gif" alt="Video" /> Video</li>
+						<li><img src="images/audio_16.gif" alt="Audio" /> Audio</li>
+						<li><img src="images/textcon.gif" alt="Text" /> Text File</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="lib-table gvsu-clear" style="margin-top: 1.2em;">
+				<#TABLE class="student-table" id="courseInfo" name="Item" type="CourseItems" headerText="Reserve Items" LinkType="ItemView" AllowRowClick="Yes" IconDirect="True" LinkColumn="BothTitles" AllowJavascriptHover="Yes" column="BothTitlesIcon:Title" column="Author:Author" column="InactiveDate:Available until" HotList="No" hotListAdd="False" hotListAddText="Star items" hotListDelete="False" hotListDeleteText="Remove stars" NoDataAction="ShowMessage" NoDataMessage="There are no items in this class." OrderBy="Author" AllowSort="true">
+			</div>
+			</form>
+			</div>
+			
+			
+		
+			
+			 <div style="margin-top: 1em;" ><a class="lib-button-small-grey right removeCourse" style="color:red !important;" href="<#ACTION action="22" type="11">&amp;CourseID=<#COURSE field="CourseID">">Remove Class</a></div>
+			<#INCLUDE filename="include_footer.html">

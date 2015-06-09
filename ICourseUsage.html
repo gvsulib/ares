@@ -1,0 +1,28 @@
+<#INCLUDE filename="include_header.html">	
+<#INCLUDE filename="include_menu.html">	
+
+<script>
+var sessionid = '<#PARAM Name="SessionID">';
+</script>
+
+<div class="line">
+	<div class="span2of3 left unit">
+		<div class="instructor" style="margin-bottom: 1em;">
+			<#INCLUDE filename="include_defaultcourseinfo.html"/>
+		</div>
+		
+	</div>
+	
+	<div class="span3 left unit lastUnit">
+	<style>.line .span3 a img {width: auto;}</style>
+		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='lib-button-small-grey right subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='lib-button-small-grey right unsubscribe'>Unsubscribe</span>"/>
+	</div>
+</div>
+
+<h4>Item Usage</h4>
+
+<div class="lib-table">
+	<#TABLE Name="CourseUsage" class="instructor-table-nohover" AllowJavascriptHover="False" AllowSort="True" NoDataMessage="No items have been viewed yet." NoDataAction="ShowMessage" ShowDetailLink="True" DetailLinkText="Show Detailed Usage">
+</div>		
+
+<#INCLUDE filename="include_footer.html">

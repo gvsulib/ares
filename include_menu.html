@@ -1,26 +1,11 @@
 
 <style>
-.lib-subnav .list { display: none; }
-.lib-subnav:hover .list { display: block; }
-form.ares-search{clear: both;width:98%;float:left;border:1px solid #bbb;padding:.2em 1%;background-color: #fff;margin: .25em 0;}
-#lib-subnav-toggle { width: auto; padding: .8em;}
-form.ares-search input[type="text"] {display:inline;width: 70%;float:left;font-size:1.4em;border:none;padding: .23em 1%;}
-@media screen and (min-width: 48em) {
-#lib-subnav-toggle { display: none;}
-.lib-subnav .list { display: block;}
-.lib-subnav:hover .list { display: static; }
-.lib-subnav ul li:hover ul {display: block;}
-}
-@media screen and (min-width: 54em) {
-	form.ares-search{width:45%;float:right;display:inline;clear: none;font-size:.75em;padding: 0 1%;margin: 0;}
 
-
-}
 </style>
 
-<h3><a href="<#ACTION action="10" form="10">">Course Reserve</a></h3>
+<h1><a href="<#ACTION action="10" form="10">">Course Reserve</a></h1>
 
-<a href="#main" class="skip">Skip navigation</a>
+<a href="#main" class="hide-accessible">Skip navigation</a>
 
 <div id="sub-navigation">
 	<div class="lib-horizontal-list right" id="lib-settings-menu">
@@ -31,9 +16,10 @@ form.ares-search input[type="text"] {display:inline;width: 70%;float:left;font-s
 		</ul>
 	</div> 
 	
-	<div class="gvsu-clear"></div>
+	<div class="cms-clear"></div>
 
-	<div class="lib-subnav span1">
+	<div class="lib-subnav span3">
+		<a id="lib-subnav-toggle" class="btn btn-default">Menu</a>
 		<div id="lib-subnav-wrap">
 		<ul>
 			<li><a href="<#ACTION action="10" form="10">">Current Classes</a></li>
@@ -48,10 +34,7 @@ form.ares-search input[type="text"] {display:inline;width: 70%;float:left;font-s
 	</div>
 </div> 
 
-<div class="gvsu-clear"></div>
-
-
-
+<div class="cms-clear"></div>
 
 <div id="status"><#STATUS></div>
-<div id="main">
+<div id="main" style="margin-top: 1em;">

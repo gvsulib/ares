@@ -2,10 +2,15 @@
 <#INCLUDE filename="include_menu.html">	
 
 			
-			<h3>Account Created!</h3>
-			<p>To continue, please select your current university status</p>
-			<p><a href="ares.dll?sessionid=<#PARAM name="SessionID">&action=10&form=2&value=LDAPFaculty">Faculty Members</a> | <a href="ares.dll?sessionid=<#PARAM name="SessionID">&action=10&form=2&value=LDAPStudent">Students</a></p>
+			<h2>Account Created!</h2>
+			<p>To continue, please select your current university status:</p>
+			<div class="row">
+				<div class="span1">
+					<p><a href="ares.dll?sessionid=<#PARAM name="SessionID">&action=10&form=2&value=LDAPFaculty" class="btn btn-default">Faculty Members</a></p>
+				</div>
+				<div class="span1">
+					<p><a href="ares.dll?sessionid=<#PARAM name="SessionID">&action=10&form=2&value=LDAPStudent" class="btn btn-default">Students</a></p>
+				</div>
+			</div>
 
-			<div id="footer">
-			<p><#COPYRIGHT></p>
 			<#INCLUDE filename="include_footer.html">

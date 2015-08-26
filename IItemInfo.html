@@ -5,8 +5,8 @@
 var sessionid = '<#PARAM name="SessionID"/>';
 </script>
 
-<div class="line">
-<div class="span2 unit left" style="padding:0;">
+<div class="row">
+<div class="span2" style="padding:0;">
 <a href="<#ACTION action="10" form="60" valueType="Lookup" Value="CourseID">" style="text-decoration: underline;display:block;margin-bottom:1em;">&laquo; Back to <#COURSE field="CourseNumber"> - <#COURSE field="Name"></a>
 </div>
 <style>
@@ -15,20 +15,20 @@ var sessionid = '<#PARAM name="SessionID"/>';
 
  }
 </style>
-<div class="span2 unit left lastUnit" style="padding:0;">
+<div class="span1" style="padding:0;">
 <span id="view-item-button" style="margin-right: 1em;"><#ITEM field="BuildURL" NewWindow="True" title="View Item" linkText="View Item"></span>	
 
-<span class="lib-button-small-grey" id="edit-item-button" style="margin-bottom: 0;margin-right:1em;"><#ITEM field="BuildEditURL" NewWindow="False" alt="Edit this item" linkText="Edit Item"></span>
+<span class="btn btn-default" id="edit-item-button" style="margin-bottom: 0;margin-right:1em;"><#ITEM field="BuildEditURL" NewWindow="False" alt="Edit this item" linkText="Edit Item"></span>
 <style>
 #item-delete-button a { color: red !important; }
 </style>
-<span class="lib-button-small-grey" id="item-delete-button"><#ITEM field="BuildDeleteURL" NewWindow="False" alt="Delete item" linkText="Delete item" /></span>
+<span class="btn btn-default" id="item-delete-button"><#ITEM field="BuildDeleteURL" NewWindow="False" alt="Delete item" linkText="Delete item" /></span>
 </div>
 </div>
-<div class="gvsu-clear"></div>
-<div class="line">
-<div class="span1 unit">
-<h4>Item Details:</h4>
+<div class="cms-clear"></div>
+<div class="row">
+<div class="span3">
+<h2>Item Details:</h2>
 
 <p style="font-size:1.3em;"><#ITEM field="Icon" headerText="<span style="float: left; margin: 0 .7em 1em 0;">" footerText="</span>" /><#ITEM field="Author" footerText=". " /><#ITEM field="PubDate" headerText="(" footerText="). " /><#ITEM field="JournalYear" headerText="(" footerText="). " /><#ITEM field="ArticleTitle" headerText="&#8220;" footerText=".&#8221; " /><#ITEM field="Title" headerText="<i>" footerText="</i>. " /><#ITEM field="PubPlace" footerText=": " /><#ITEM field="Publisher" footerText=". " /><#ITEM field="Pages" headerText="pp." footerText=". " /></p>
 <p style="font-size:1.3em;"><#ITEM field="CurrentStatus" headerText="<b>Currently:</b> " /> <#ITEM field="ReasonForCancellation" headetText=" : "/></p>

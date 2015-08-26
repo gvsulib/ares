@@ -5,21 +5,21 @@
 var sessionid = '<#PARAM Name="SessionID">';
 </script>
 
-		<div class="line">
-	<div class="span2of3 left unit">
+		<div class="row">
+	<div class="span2">
 		<div class="instructor" style="margin-bottom: 1em;">
 			<#INCLUDE filename="include_defaultcourseinfo.html"/>
 		</div>
 		
 	</div>
 	
-	<div class="span3 left unit lastUnit">
-	<style>.line .span3 a img {width: auto;}</style>
-		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='lib-button-small-grey right subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='lib-button-small-grey right unsubscribe'>Unsubscribe</span>"/>
+	<div class="span1">
+	<style>.row .span1 a img {width: auto;}</style>
+		<#SUBSCRIBE notSubscribedText="" subscribedText="" subscribeLink="<span class='btn btn-default subscribe' title='Get emailed when new items are added'>Subscribe Now</span>" unsubscribeLink="<span class='btn btn-default unsubscribe'>Unsubscribe</span>"/>
 	</div>
 </div>
-
-<h4>Proxy Users</h4>
+<div class="cms-clear"></div>
+<h2>Proxy Users</h2>
 
 <form method="post" action="ares.dll" class="lib-form" id="addUser">
 <input type="hidden" name="SessionID" value="<#PARAM name="SessionID"/>"/>
@@ -28,11 +28,11 @@ var sessionid = '<#PARAM Name="SessionID">';
 <input type="hidden" name="Form" value="<#PARAM name="Form">"/>
 <input type="hidden" name="CourseID" value="<#COURSE field="CourseID">"/>
 
-<h4 style="margin-top:1em;">Add a proxy for this course</h4>	
+<h3 style="margin-top:1em;">Add a proxy for this course</h3>	
 
 <label for="ProxyUser">Proxy's <abbr title="Grand Valley State University">GVSU</abbr> username:</label>
 <input name="ProxyUser" type="text"/>
-<input class="lib-button" id="AddProxy" type="submit" name="AddProxyUser" style="margin-top:1em;" Value="Add Proxy User"/></p>	
+<input id="AddProxy" type="submit" name="AddProxyUser" style="margin-top:1em;" Value="Add Proxy User"/></p>	
 
 </form>	
 

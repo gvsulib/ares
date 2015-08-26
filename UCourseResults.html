@@ -33,7 +33,7 @@ var sessionid = '<#PARAM Name="SessionID">';
 </style>
 
 <div class="lib-table course-search-results">
-<#TABLE name="Course" type="AddCourse"  addCourseText="<span class='lib-button-small-grey' style='margin-bottom:0;''>Add Class</span>" previouslyAddedText="<img src='/ares/img/checkmark.png' class='class-added' alt='Added' />" id="SearchResults" class="student-table-nohover" AllowRowClick="No" headerText="Classes" AllowJavascriptHover="No" Session="Current" Role="Student" column="CourseNumber:Course" column="CourseCode:Sec" column="Name:Name" column="Instructor:Instructor" NoDataAction="ShowMessage" NoDataMessage="No classes were found with that criteria.<br/>To add classes to your account, <a href='<#Action action=10 form=63>'>Search Classes</a>" footerText="<a href='<#Action action=10 form=63>' class='lib-button-small' style='margin:1em 0;'>Search Again?</a>">
+<#TABLE name="Course" type="AddCourse"  addCourseText="<span class='btn btn-default' style='margin-bottom:0;''>Add Class</span>" previouslyAddedText="<img src='/ares/img/checkmark.png' class='class-added' alt='Added' />" id="SearchResults" class="student-table-nohover" AllowRowClick="No" headerText="Classes" AllowJavascriptHover="No" Session="Current" Role="Student" column="CourseNumber:Course" column="CourseCode:Sec" column="Name:Name" column="Instructor:Instructor" NoDataAction="ShowMessage" NoDataMessage="No classes were found with that criteria.<br/>To add classes to your account, <a href='<#Action action=10 form=63>'>Search Classes</a>" footerText="<a href='<#Action action=10 form=63>' class='btn btn-default' style='margin:1em 0;'>Search Again?</a>">
 </div>
 			
 <#INCLUDE filename="include_footer.html">

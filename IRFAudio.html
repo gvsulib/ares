@@ -1,7 +1,7 @@
 <#INCLUDE filename="include_header.html">	
 <#INCLUDE filename="include_menu.html">	
 
-<h4>Add Reserve Item for <#COURSE field="CourseNumber"></h4>
+<h2>Add Reserve Item for <#COURSE field="CourseNumber"></h2>
 
 <form action="ares.dll" method="post" name="createitem" class="lib-form">
 <input type="hidden" name="Action" value="11"/>        
@@ -13,32 +13,32 @@
 <input type="checkbox" id="article-toggle" name="format" value="Book" /> <label for="article-toggle" class="lib-inline">This is an article or book chapter</label>
 </div>
 
-<div class="line" id="article-book-chapter" style="display:none;">
-	<div class="span3of4 unit left">
+<div class="row" id="article-book-chapter" style="display:none;">
+	<div class="span2 left">
 		<label for="ArticleTitle"><#ERROR name="ERRORArticleTitle"><span class="<#VALIDATION name="ERRORArticleTitle">">Article or Book Chapter Title</span></label>
         <input id="ArticleTitle" name="ArticleTitle" type="text" value="<#PARAM name="ArticleTitle">" />
 	</div>
 
-	<div class="span4 unit left lastUnit">
+	<div class="span1">
 		<label><#ERROR name="ERRORPages"><span class="<#VALIDATION name="ERRORPages">">Pages</span></label>
         <input id="Pages" name="Pages" type="text" value="<#PARAM name="Pages">" />
 	</div>
 </div><!-- End #article-book-chapter -->
 
-<div class="line">
-	<div class="span1 unit">
+<div class="row">
+	<div class="span3">
 		<label for="Author"><#ERROR name="ERRORTitle"><span class="req">*</span><span class="<#VALIDATION name="ERRORTitle">">Book, Journal, or Work Title</span></label>
 		<input id="Title" name="Title" type="text" value="<#PARAM name="Title">" />
 	</div>
 </div>
 
-<div class="line">
-	<div class="span3of4 unit left">
+<div class="row">
+	<div class="span2">
 		<label for="Author"><#ERROR name="ERRORAuthor"><span class="req">*</span><span class="<#VALIDATION name="ERRORAuthor">">Author/Editor</span></label>
 		<input id="Author" name="Author" type="text" value="<#PARAM name="Author">" />
 	</div>
 
-	<div class="span4 unit left lastUnit">
+	<div class="span1">
 		<label for="pubdate"><#ERROR Name="ERRORPubDate"><span class="req">*</span><span class="<#VALIDATION name="ERRORPubDate">">Date</span></label>
          <input id="PubDate" name="PubDate" type="text" value="<#PARAM Name="pubdate"/>" />
     </div>
@@ -46,35 +46,36 @@
 
 <div class="js-fallback-info">
 
-<div class="line">
-	<div class="span4 unit left lastUnit">
+<div class="row">
+	<div class="span1">
 		<label for="Volume"><#ERROR name="ERRORVolume"><span class="<#VALIDATION name="ERRORVolume">">Volume or Chapter <abbr title="Number">#</abbr></span></label>
          <input id="Volume" name="Volume" type="text" value="<#PARAM name="Volume">" />
 	</div>
 
-	<div class="span4 unit left lastUnit">
+	<div class="span1">
 		<label for="Issue"><#ERROR name="ERRORIssue"><span class="<#VALIDATION name="ERROREdition">">Issue or Edition</span></label>
          <input id="Issue" name="Issue" type="text" value="<#PARAM name="Issue">" />
 	</div>
 
-	<div class="span4 unit left lastUnit">
+	<div class="span1">
 		<label for="JournalMonth"><#ERROR name="ERRORMonth"><span class="<#VALIDATION name="ERRORMonth">">Journal Month</span></label>
          <input id="JournalMonth" name="JournalMonth" type="text" value="<#PARAM name="JournalMonth">" />
 	</div>
 
-	<div class="span4 unit left lastUnit">
+	
+</div>
+
+<div class="row">
+<div class="span1">
 		<label for="JournalYear"><#ERROR name="ERRORYear"><span class="<#VALIDATION name="ERRORYear">">Journal Year</span></label>
         <input id="JournalYear" name="JournalYear" type="text" value="<#PARAM name="JournalYear">" />
 	</div> 
-</div>
-
-<div class="line">
-	<div class="span2 unit left">
+	<div class="span1">
 		<label for="Publisher"><#ERROR Name="ERRORPublisher"><span class="<#VALIDATION name="ERRORPublisher">">Publisher</span></label>
         <input id="Publisher" name="Publisher" type="text" value="<#PARAM Name="publisher"/>" />
 	</div>
 
-	<div class="span2 unit left lastUnit">
+	<div class="span1">
 		<label for="PubPlace"><#ERROR Name="ERRORPubPlace"><span class="<#VALIDATION name="ERRORPubPlace">">Place of Publication</span></label>
         <input id="PubPlace" name="PubPlace" type="text" value="<#PARAM Name="pubplace"/>" />
 	</div>
@@ -82,38 +83,39 @@
 
 </div><!-- End #js-fallback-info -->
 
-<div class="line" id="isbn-div">
+<div class="row" id="isbn-div">
 	<div id="number-wrapper">
-	<div class="span2 unit left">
+	<div class="span1">
 		<label for="ISXN"><#ERROR name="ERRORISXN"><span class="<#VALIDATION name="ERRORISXN">"><abbr title="International Standard Book Number">ISBN</abbr> or <abbr title="International Standard Serials Number">ISSN</abbr></span></label>
 		<input id="ISXN" name="ISXN" type="text" value="<#PARAM name="ISXN">" />
 	</div>
-	<div class="span2 unit left lastUnit" id="CallNoDiv">
+	<div class="span1" id="CallNoDiv">
 		<label for="ISXN"><#ERROR name="ERRORCallNumber"><span class="<#VALIDATION name="ERRORCallNumber">">Call Number</span></label>
 		<input id="CallNumber" name="CallNumber" type="text" value="<#PARAM name="ISXN">" />
 	</div>
 </div>
 </div>
 
-<div class="line">
+<div class="row supply">
+<style>.row.supply span { display: inline-block; margin-right: 2%;}</style>
 
-	<h4>Where can we find this item?</h4>
+	<h3>Where can we find this item?</h3>
 
-	<div class="span4 unit left" id="supply-upload">
-		<input id="File" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="File"> name="SupplyMethod" value="File" /> <label class="lib-inline" for="File" title="We'll convert any uploaded files to PDF.">I&#8217;ll Upload a File</label>
-	</div>
+	<span id="supply-upload">
+		<input id="File" type="radio" checked="checked" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="File"> name="SupplyMethod" value="File" /> <label class="lib-inline" for="File" title="We'll convert any uploaded files to PDF.">I&#8217;ll Upload a File</label>
+	</span>
 
-	<div class="span4 unit left" id="supply-link">
+	<span id="supply-link">
 		<input id="WebLink" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WebLink"> name="SupplyMethod" value="WebLink" /> <label class="lib-inline" for="WebLink" title="On a website, in a database, etc.">It&#8217;s Already Online</label>
-	</div>
+	</span>
 
-	<div class="span4 unit left" id="supply-deliver">
+	<span id="supply-deliver">
 		<input id="WillDeliver" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="WillDeliver"> name="SupplyMethod" value="WillDeliver" /> <label class="lib-inline" for="WillDeliver" title="We'll make a hard copy available or digitize it for your students.">I&#8217;ll Bring a Copy In</label>
-	</div>
+	</span>
 
-	<div class="span4 unit left" id="supply-library">
+	<span id="supply-library">
 		<input id="StaffSearch" type="radio" <#PARAM Name="SELECTED" Identifier="SupplyMethod" Value="StaffSearch"> name="SupplyMethod" value="StaffSearch" /> <label class="lib-inline" for="StaffSearch" title="We'll handle the rest from here.">Use Library Copy</label>
-	</div>
+	</span>
 
 </div>
 
@@ -130,10 +132,11 @@
 	</div>
 </div>
 
-<div class="line" id="supply-campus">
+<div class="row" id="supply-campus">
 	<div class="span2 unit left">
 		<p style="padding-right:1em; text-align:justify;">If you own this item you can bring your copy to any library location for inclusion in your Course Reserves. If we can digitize the item, we will, otherwise we&#8217;ll allow your students to borrow it for short periods of time for the semester.</p>
 	</div>
+	<div id="hardcopyitems">
 	<div class="span4 unit left">
 		<label for="PickupLocation"><#ERROR name="ERRORPickUpLocation"><span class='<#VALIDATION name=ERRORPickupLocation>'>Which location?</span></label>
 		<#OPTION name="PickupLocation" tabIndex="60" SelectedValue="<#Course field="DefaultPickupSite">" >
@@ -141,6 +144,7 @@
 	<div class="span4 unit left lastUnit">
 		<label for="LoanPeriod"><#ERROR name="ERRORLoanPeriod">Loan Period:<span class='<#VALIDATION name=ERRORLoanPeriod>'></span></label>
 		<#OPTION name="LoanPeriod" SitePeriods="True" AddTopOption="Choose One"> 
+	</div>
 	</div>
 </div>
 
@@ -151,12 +155,13 @@
 </style>
 
 <!-- Dynamically change these if javascript is available -->
-<input type="hidden" id="ItemType" name="ItemType" value="MON"/><br />					
-<input type="hidden" id="format" name="format" value="Audio"/>
+<input type="hidden" id="ItemType" name="ItemType" value="SER"/><br />					
+<input type="hidden" id="format" name="format" value="Article"/>
 
-<div class="line">
+
+<div class="row">
 	<div class="span1 unit" id="submit-container">
-		<input class="lib-button" type="submit" name="SubmitButton" id="SubmitButton" style="margin-top:1em;" tabindex="6" value="Submit Item" />
+		<input type="submit" name="SubmitButton" id="SubmitButton" tabindex="6" value="Save Item" />
 	</div>
 </div>
 

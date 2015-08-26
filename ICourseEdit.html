@@ -13,84 +13,81 @@ var sessionid = '<#PARAM Name="SessionID">';
 <input type="hidden" name="CourseID" value="<#Course field="CourseID">">																						
 <input name="CourseEnrollment" type="hidden" value="15" />
 
-<h4>Class Information</h4>
-<div class="line">
-<div class="span2 unit left">
+<h2>Class Information</h2>
+<div class="row">
+<div class="span2">
 <label for="CourseInstructor"><#ERROR name="ERRORCourseInstructor"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseInstructor">">Instructor</span> (Last, First)</label>
 <input id="CourseInstructor" name="CourseInstructor" tabindex="1" type="text" value="<#COURSE field="Instructor">" />
 </div>
 
-<div class="span2 unit left lastUnit">	
+<div class="span1">	
 <label for="Department"><#ERROR name="ERRORDepartment"><span class="req">*</span> <span class="<#VALIDATION name="ERRORDepartment">">Department</span></label>
 <#OPTION name='Custom' Cssclass='f-dept' GroupName='Department' AddTopOption='Choose a Department' SelectedValue="<#Course field=department>" tabindex='2' Size='1' ExcludeJoinedValues='True'>
 </div>
 </div>
 
-<div class="line">
-<div class="span2 unit left">
+<div class="row">
+<div class="span1">
 <label for="CourseName"><#ERROR name="ERRORCourseName"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseName">">Class Name</span></label>
 <input id="CourseName" name="CourseName" type="text" tabindex="3" value="<#COURSE field="Name">" />
 </div>
 
-<div class="span4 unit left">
+<div class="span1">
 <label for="CourseNumber"><#ERROR name="ERRORCourseNumber"><span class="req">*</span> <span class="<#VALIDATION name="ERRORCourseNumber">">Course Number</span></label>
 <input id="CourseNumber" name="CourseNumber" placeholder="e.g. MAT-101" tabindex="4" type="text" value="<#COURSE field="CourseNumber">" />
 </div>
               
-<div class="span4 unit left lastUnit">
+<div class="span1">
 <label for="CourseCode"><#ERROR name="ERRORCourseCode"><span class="<#VALIDATION name="ERRORCourseCode">">Section Number</span></label>
 <input id="CourseCode" name="CourseCode" tabindex="5" type="text" value="<#COURSE field="CourseCode">">
 </div>
 </div>
 				
-<div class="line">                	
-<div class="span2 unit left">        
+<div class="row">                	
+<div class="span1">        
 <label for="Semester"><#ERROR name="ERRORSemester"><span class="req">*</span> <span class="<#VALIDATION name="ERRORSemester">">Class Semester</span></label>
 <#COURSE field="Semester" tabindex='6' />
 </div>
 
-<div class="span2 unit left">
+<div class="span2">
 <label for='Pickup Location'><span class='<#VALIDATION name=ERRORPickupLocation>'>Pickup Location for Physical Items</span></label>
 <#OPTION name="PickupLocation" tabIndex="7" SelectedValue="<#Course field="DefaultPickupSite">" >
 </div>
 
 </div>
 
-<div class="line">
-<div class="span1 unit">					
+<div class="row">
+<div class="span3">					
 <label for="CourseDescription"><#ERROR name="ERRORCourseDescription"><span class="<#VALIDATION name="ERRORCourseDescription">">Class Description</span></label>
 <textarea name="CourseDescription" id="CourseDescription" tabindex="8"><#COURSE field="Description"/></textarea>
 </div>
 </div>
 
-<div class="line">
-<div class="span1 unit">
+<div class="row">
+<div class="span3">
 <label for="CourseURL"><#ERROR name="ERRORCourseURL"><span class="<#VALIDATION name="ERRORCourseURL">">Class <abbr title="Uniform Resource Locator">URL</abbr></span></label>
 <input id="CourseURL" name="CourseURL" placeholder="http://" tabindex="9" type="text" value="<#COURSE field="URL">" />
 </div>
 </div>
 
-<hr />
+<div class="cms-clear"></div>
 
-<h4>Access</h4>
+<h3 style="margin-top: 1em;">Access</h3>
 
-<div class="line">
-<div class="span1 unit">
+<div class="row">
+<div class="span3">
 <input type="checkbox" id="UseCoursePassword" name="UseCoursePassword" tabindex="10" value="Yes" /> <label style="display:inline-block;">Password-protect items for this class</label>
 </div>
 </div>
 
-<div class="line">
-<div class="span2 unit left" id="hidden-password">
+<div class="row">
+<div class="span2" id="hidden-password">
 	<label for="CoursePassword">Password:</label>
 	<input type="password" name="CoursePassword" id="ud-first-password" value="<#COURSE field="CoursePassword">" /><br />
 </div>
-<div class="span2 unit left lastUnit">
-&nbsp;
-</div>
 </div>
 
-<input class="lib-button" type="submit" tabindex="11" name="SubmitButton" value="Modify Class" />
+<input style="margin-top: 1em;" type="submit" tabindex="11" name="SubmitButton" value="Modify Class" />
 
 </form>
 

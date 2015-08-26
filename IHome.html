@@ -8,15 +8,15 @@ var sessionid = '<#PARAM Name="SessionID">';
 
 <div id="current_classes">
 <div class="lib-table">
-<#TABLE name="Course" class="instructor-table" AllowRowClick="Yes" headerText="Current Classes" LinkColumn="CourseNumber" AllowJavascriptHover="True" Session="Current" Role="Instructor" column="CourseNumber:Course" column="CourseCode:Section" column="Semester:Semester" column="Name:Name" column="ReserveItems:Reserve Items" footerText="" NoDataAction="ShowMessage" NoDataMessage="No classes found. <#ACTION action="10" form="111" linkType="URL" linkText="Create a new class now">" OrderBy="Semester">
+<#TABLE name="Course" class="instructor-table" AllowRowClick="Yes" headerText="Classes" LinkColumn="CourseNumber" AllowJavascriptHover="True" Session="Current" Role="Instructor" column="CourseNumber:Course" column="CourseCode:Section" column="Semester:Semester" column="Name:Name" column="ReserveItems:Reserve Items" footerText="" NoDataAction="ShowMessage" NoDataMessage="No classes found. <#ACTION action="10" form="111" linkType="URL" linkText="Create a new class now">" OrderBy="Semester">
 </div>
-<div class="line" style="margin-top: 1em;">
-<div class="span2 unit left">
-<a href="<#Action action='10' form='2' value='IActiveCourseList'>" class="lib-button-grey">View upcoming classes</a>
+<div class="row" style="margin-top: 1em;">
+<div class="span1">
+<a href="<#Action action='10' form='2' value='IActiveCourseList'>" class="btn btn-default btn-lg">View upcoming classes</a>
 </div>
-<div class="span2 unit left">
+<div class="span1">
 <div class="right">
-<a href="<#ACTION action='10' form='2' value='IPreviousCourseList'>" class="lib-button-grey">View past classes</a>
+<a href="<#ACTION action='10' form='2' value='IPreviousCourseList'>" class="btn btn-default btn-lg">View past classes</a>
 </div>
 </div>
 
@@ -24,12 +24,14 @@ var sessionid = '<#PARAM Name="SessionID">';
 </div><!-- End #current_classes -->
     
 <div id="no_classes" style="display: none; font-size: 1.2em;">
- <p>Course Reserves helps your students find all the readings you assign in one convenient place.</p>
+ <p>Course Reserve helps your students find all the readings you assign in one convenient place.</p>
     
-    <p><a href="<#ACTION action='10' form='111' value='ICourseCreate'>" class="lib-button">Add Current Classes</a>&nbsp;<a href="<#ACTION action='10' form='2' value='IPreviousCourseList'>" class="lib-button-grey" style="margin-left:2%;">View past classes</a></p>
-    <p>Or, our <a href="mailto:ereserve@gvsu.edu">Course Reserve team can help you</a>.</p>
+    <p><a href="<#ACTION action='10' form='111' value='ICourseCreate'>" class="btn btn-primary btn-lg">Add Current Classes</a></p>
+
+    <p style="margin-top:2.5em;"><a href="<#Action action='10' form='2' value='IActiveCourseList'>" class="btn btn-default btn-lg">View upcoming classes</a>&nbsp;<a href="<#ACTION action='10' form='2' value='IPreviousCourseList'>" class="btn btn-default btn-lg" style="margin-left:2%;">View past classes</a></p>
+    <p><small>Or, our <a href="mailto:ereserve@gvsu.edu">Course Reserve team can help you</a>.</small></p>
     
-    <p>Expecting to find classes? Each semester we need to add your classes to the Course Reserve system manually. If you're teaching the same class(es) again, our team can help you move content over from previous semesters. Get in touch so we can help: <a href="mailto:ereserve@gvsu.edu">ereserve@gvsu.edu</a></p>
+    <p class="alert alert-info">Expecting to find classes? Each semester we need to add your classes to the Course Reserve system manually. If you're teaching the same class(es) again, our team can help you move content over from previous semesters. Get in touch so we can help: <a href="mailto:ereserve@gvsu.edu">ereserve@gvsu.edu</a></p>
     
 </div>
 
